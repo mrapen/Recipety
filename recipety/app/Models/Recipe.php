@@ -26,7 +26,7 @@ class Recipe extends Model
     // Зв'язок з інгредієнтами (багато-до-багатьох)
     public function ingredients()
     {
-        return $this->belongsToMany(Ingredient::class)->using(RecipeIngredient::class)->withPivot('quantity', 'unit')->withTimestamps();
+        return $this->belongsToMany(Ingredient::class, 'recipe_ingredient')->using(RecipeIngredient::class)->withPivot('quantity', 'unit')->withTimestamps();
     }
 
 
