@@ -20,8 +20,10 @@ class SearchController extends Controller
         $recipes = Recipe::query()
             ->where('title', 'LIKE', '%' . $query . '%')
             ->orWhere('description', 'LIKE', '%' . $query . '%')
-            ->orWhere('ingredients', 'LIKE', '%' . $query . '%')
-            ->with(['category', 'tags'])
+            ->orWhereHas('ingredients', function ($q) use ($query) {
+                $q->where('name', 'LIKE', '%' . $query . '%');
+            })
+            ->with(['category', 'tags', 'ingredients'])
             ->paginate(10);
 
         return view('search.index', compact('recipes', 'query'));
