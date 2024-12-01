@@ -1,0 +1,91 @@
+/* Основні кольори */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+nav {
+    background-color: #f8f9fa; /* Світлий фон для навігації */
+    border-bottom: 2px solid #eaeaea;
+}
+
+nav a {
+    color: #495057;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #d9534f; /* Відтінок червоного для кулінарного акценту */
+}
+
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Лого */
+nav .logo {
+    height: 40px;
+    width: auto;
+}
+
+/* Список навігації */
+nav .nav-link {
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+nav .nav-link.active {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+/* Горизонтальне меню */
+.nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* Відступи між елементами */
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item a {
+    text-decoration: none; /* Зняття підкреслення */
+    font-size: 18px; /* Збільшений розмір шрифту */
+    color: #495057; /* Темний колір тексту */
+    font-weight: 500; /* Середня жирність */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-item a:hover {
+    color: #d9534f; /* Червоний відтінок для ефекту наведення */
+    transform: scale(1.1); /* Збільшення при наведенні */
+}
+
+.nav-item a.active {
+    color: #d9534f; /* Активний пункт меню */
+    font-weight: bold; /* Більш жирний текст */
+    border-bottom: 2px solid #d9534f; /* Нижній бордер для активного пункту */
+}
+
+/* Лого */
+a.text-decoration-none {
+    text-decoration: none;
+    color: #212529; /* Основний колір для тексту поруч із лого */
+}
+
+/* Адаптивність */
+@media (max-width: 992px) {
+    .nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

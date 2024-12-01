@@ -5,19 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Recipe;
 use App\Models\Category;
 use App\Models\Tag;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class RecipeController extends Controller
 {
-    public function index()
+    public function home()
     {
         // Отримання останніх рецептів
         $latestRecipes = Recipe::latest()->take(6)->get();
-        
+
         // Отримання популярних категорій (з обмеженням на відображення)
         $categories = Category::withCount('recipes')->orderBy('recipes_count', 'desc')->take(5)->get();
-        
+
         // Отримання популярних тегів
         $tags = Tag::take(10)->get();
 
@@ -32,6 +32,15 @@ class RecipeController extends Controller
 
         // Повертаємо вид із рецептом
         return view('recipes.show', compact('recipe'));
+    }
+
+    public function index()
+    {
+        // Отримуємо рецепти з усіма пов’язаними даними
+        $recipes = Recipe::with(['category', 'tags', 'ingredients']);
+
+        // Повертаємо вид зі рецептами
+        return view('recipes.index', compact('recipes'));
     }
 
     public function create()
@@ -55,7 +64,9 @@ class RecipeController extends Controller
         ]);
 
         $recipe = new Recipe($validated);
-        $recipe->user_id = auth()->id();
+        if (Auth::check()) {
+            $recipe->user_id = Auth::id();
+        }
         if ($request->hasFile('image')) {
             $recipe->image = $request->file('image')->store('images', 'public');
         }
