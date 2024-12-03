@@ -23,7 +23,7 @@ class SearchController extends Controller
             ->orWhereHas('ingredients', function ($q) use ($query) {
                 $q->where('name', 'LIKE', '%' . $query . '%'); // Припускаємо, що `name` — це назва інгредієнта
             })
-            ->with(['category', 'tags', 'ingredients']) // Завантажуємо пов'язані категорії, теги та інгредієнти
+            ->with(['category', 'ingredients']) // Завантажуємо пов'язані категорії, теги та інгредієнти
             ->paginate(10);
 
         return view('search.index', compact('recipes', 'query'));

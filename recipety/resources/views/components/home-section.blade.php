@@ -1,9 +1,5 @@
-<!-- resources/views/home.blade.php -->
-@extends('layouts.app')
-
-@section('content')
 <div class="container">
-    <!-- Секція пошуку рецептів -->
+    <h1>Усі рецепти</h1>
     <div class="search-bar my-4">
         <form action="{{ route('search') }}" method="GET" class="search-form">
             <input type="text" name="query" placeholder="Пошук рецептів..." class="form-control" value="{{ request('query') }}">
@@ -37,15 +33,4 @@
             @endforeach
         </div>
     </section>
-
-    <!-- Популярні теги -->
-    <section class="popular-tags my-4">
-        <h2>Популярні теги</h2>
-        <div class="tag-list">
-            @foreach($tags as $tag)
-                <a href="{{ route('tags.show', $tag->id) }}" class="badge bg-secondary text-decoration-none">{{ $tag->name }}</a>
-            @endforeach
-        </div>
-    </section>
 </div>
-@endsection

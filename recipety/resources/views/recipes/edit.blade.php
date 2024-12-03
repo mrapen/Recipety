@@ -7,7 +7,7 @@
     <form action="{{ route('recipes.update', $recipe->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        <x-recipe-form :categories="$categories" :tags="$tags" :recipe="$recipe" />
+        <x-recipe-form :categories="$categories" :recipe="$recipe" />
         <button type="submit" class="btn btn-primary">Оновити рецепт</button>
     </form>
 </div>

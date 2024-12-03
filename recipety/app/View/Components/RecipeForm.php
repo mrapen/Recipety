@@ -5,27 +5,22 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use App\Models\Category;
-use App\Models\Tag;
 use App\Models\Recipe;
 
 class RecipeForm extends Component
 {
     public $categories;
-    public $tags;
     public $recipe;
 
     /**
      * Створює новий екземпляр компонента.
      *
      * @param \Illuminate\Database\Eloquent\Collection $categories
-     * @param \Illuminate\Database\Eloquent\Collection $tags
      * @param Recipe|null $recipe
      */
-    public function __construct($categories, $tags, $recipe = null)
+    public function __construct($categories, $recipe = null)
     {
         $this->categories = $categories;
-        $this->tags = $tags;
         $this->recipe = $recipe;
     }
 

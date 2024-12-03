@@ -1,7 +1,7 @@
 <nav x-data="{ open: false }" class="bg-light border-bottom shadow-sm">
     <div class="container d-flex justify-content-between align-items-center py-2">
         <!-- Logo -->
-        <a href="{{ route('home') }}" class="d-flex align-items-center text-decoration-none">
+        <a href="{{ auth()->check() ? route('dashboard') : route('welcome') }}" class="d-flex align-items-center text-decoration-none">
             <x-application-logo class="me-2" style="width: 40px; height: 40px;" />
             <span class="text-dark fw-bold fs-4">Recipety</span>
         </a>

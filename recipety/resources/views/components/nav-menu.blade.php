@@ -9,14 +9,4 @@
             {{ __('Категорії') }}
         </x-nav-link>
     </li>
-    <li class="nav-item">
-        <x-nav-link :href="route('favorites.index')" :active="request()->routeIs('favorites.index')">
-            {{ __('Улюблені рецепти') }}
-        </x-nav-link>
-    </li>
-    <li class="nav-item">
-        <x-nav-link :href="route('tags.index')" :active="request()->routeIs('tags.index')">
-            {{ __('Теги') }}
-        </x-nav-link>
-    </li>
 </ul>

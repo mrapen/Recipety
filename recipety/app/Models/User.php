@@ -48,10 +48,4 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-
-    // Зв’язок з моделлю Favorite
-    public function favorites()
-    {
-        return $this->hasMany(Favorite::class);
-    }
 }

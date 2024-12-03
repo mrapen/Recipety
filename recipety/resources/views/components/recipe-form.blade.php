@@ -31,17 +31,6 @@
 </div>
 
 <div class="mb-3">
-    <label for="tags" class="form-label">Теги</label>
-    <select name="tags[]" id="tags" class="form-control" multiple>
-        @foreach($tags as $tag)
-            <option value="{{ $tag->id }}" {{ (collect(old('tags', $recipe->tags->pluck('id') ?? []))->contains($tag->id)) ? 'selected' : '' }}>
-                {{ $tag->name }}
-            </option>
-        @endforeach
-    </select>
-</div>
-
-<div class="mb-3">
     <label for="image" class="form-label">Зображення рецепту</label>
     <input type="file" name="image" id="image" class="form-control">
     @if(isset($recipe) && $recipe->image)
