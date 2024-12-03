@@ -3,19 +3,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h1>Результати пошуку для: "{{ $query }}"</h1>
+<section class="bg-blur-lt rounded-lg p-4 col-span-2">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Результати пошуку для: {{ $query }}</h2>
 
     @if($recipes->isEmpty())
-        <p>Нічого не знайдено за вашим запитом.</p>
+        <p class="text-gray-600">Нічого не знайдено за вашим запитом.</p>
     @else
-        <div class="recipe-results">
-            @foreach($recipes as $recipe)
-                <x-recipe-card :recipe="$recipe" />
-            @endforeach
-        </div>
-
+        @foreach($recipes as $recipe)
+            <x-recipe-card :recipe="$recipe" />
+        @endforeach
         {{ $recipes->links() }}
     @endif
-</div>
+</section>
 @endsection

@@ -2,42 +2,41 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container my-4">
-    <!-- Заголовок і категорія -->
-    <h1>{{ $recipe->title }}</h1>
-    <p class="text-muted">Категорія: <a href="{{ route('categories.show', $recipe->category->id) }}">{{ $recipe->category->name }}</a></p>
+<section class="bg-blur-lt rounded-lg p-4 col-span-2">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">{{ $recipe->title }}</h1>
+    <p class="text-gray-600">Категорія: <a href="{{ route('categories.show', $recipe->category->id) }}">{{ $recipe->category->name }}</a></p>
 
     <!-- Зображення рецепта -->
-    <div class="recipe-image my-4">
-        <img src="{{ $recipe->image }}" alt="{{ $recipe->title }}" class="img-fluid">
+    <div class="bg-white shadow-sm rounded-lg p-4 mb-4">
+        <img src="{{ $recipe->image }}" alt="{{ $recipe->title }}"class="shadow-sm rounded-lg p-4 mb-4">
     </div>
 
     <!-- Опис рецепта -->
-    <div class="description my-4">
-        <h3>Опис</h3>
-        <p>{{ $recipe->description }}</p>
+    <div class="bg-white shadow-sm rounded-lg p-4 mb-4">
+        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Опис</h3>
+        <p class="text-gray-600">{{ $recipe->description }}</p>
     </div>
 
     <!-- Інформація про приготування -->
-    <div class="prep-info my-4">
-        <p><strong>Час підготовки:</strong> {{ $recipe->prep_time }} хв.</p>
-        <p><strong>Час приготування:</strong> {{ $recipe->cook_time }} хв.</p>
+    <div class="bg-white shadow-sm rounded-lg p-4 mb-4">
+        <p class="text-gray-600"><strong>Час підготовки:</strong> {{ $recipe->prep_time }} хв.</p>
+        <p class="text-gray-600"><strong>Час приготування:</strong> {{ $recipe->cook_time }} хв.</p>
     </div>
 
     <!-- Інгредієнти -->
-    <div class="ingredients my-4">
-        <h3>Інгредієнти</h3>
+    <div class="bg-white shadow-sm rounded-lg p-4 mb-4">
+        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Інгредієнти</h3>
         <ul>
             @foreach($recipe->ingredients as $ingredient)
-                <li>{{ $ingredient->pivot->quantity }} {{ $ingredient->pivot->unit }} {{ $ingredient->name }}</li>
+                <li  class="text-gray-600">{{ $ingredient->pivot->quantity }} {{ $ingredient->pivot->unit }} {{ $ingredient->name }}</li>
             @endforeach
         </ul>
     </div>
 
     <!-- Інструкції приготування -->
-    <div class="instructions my-4">
-        <h3>Інструкції</h3>
-        <p>{{ $recipe->instructions }}</p>
+    <div class="bg-white shadow-sm rounded-lg p-4 mb-4">
+        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Інструкції</h3>
+        <p class="text-gray-600">{{ $recipe->instructions }}</p>
     </div>
-</div>
+</section>
 @endsection
