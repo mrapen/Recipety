@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Recipe;
 use App\Models\Category;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class RecipeController extends Controller
@@ -18,10 +17,7 @@ class RecipeController extends Controller
         $categories = Category::withCount('recipes')->orderBy('recipes_count', 'desc')->take(5)->get();
 
         // Повернення виду з даними
-        if (Auth::check()) {
-            return view('dashboard', compact('latestRecipes', 'categories'));
-        }
-        return view('welcome', compact('latestRecipes', 'categories'));
+        return view('home', compact('latestRecipes', 'categories'));
     }
 
     public function show($id)
@@ -60,9 +56,7 @@ class RecipeController extends Controller
         ]);
 
         $recipe = new Recipe($validated);
-        if (Auth::check()) {
-            $recipe->user_id = Auth::id();
-        }
+
         if ($request->hasFile('image')) {
             $recipe->image = $request->file('image')->store('images', 'public');
         }

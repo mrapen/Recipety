@@ -9,13 +9,7 @@ class Recipe extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'instructions', 'image', 'prep_time', 'cook_time', 'user_id', 'category_id'];
-
-    // Зв'язок з користувачем (автором рецепта)
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $fillable = ['title', 'description', 'instructions', 'image', 'prep_time', 'cook_time', 'category_id'];
 
     // Зв'язок з категорією
     public function category()
