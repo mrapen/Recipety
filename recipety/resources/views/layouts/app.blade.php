@@ -27,7 +27,7 @@
 
     <footer class="bg-gray-800 text-white py-4">
         <div class="container mx-auto text-center">
-            &copy; {{ date('Y') }} 2024 Recipety. Всі права захищено.
+            &copy; {{ date('Y') }} Recipety. Всі права захищено.
         </div>
     </footer>
 </body>

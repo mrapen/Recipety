@@ -7,7 +7,7 @@
             <h2 class="text-2xl font-semibold text-gray-800 mb-4">Останні рецепти</h2>
             @foreach ($latestRecipes as $recipe)
                 <a href="{{ route('recipes.show', $recipe->id) }}">
-                    <x-recipe-card />
+                    <x-recipe-card :recipe="$recipe"/>
                 </a>
             @endforeach
         </section>
@@ -17,7 +17,7 @@
             <!-- Пошук -->
             <div class="bg-blur-lt rounded-lg p-4 mb-6">
                 <h2 class="text-2xl font-semibold text-gray-800 mb-4">Пошук рецептів</h2>
-                <form action="{{ route('search') }}" method="GET" class="flex">
+                <form action="{{ route('search.index') }}" method="GET" class="flex">
                     <input type="text" name="search" placeholder="Пошук рецептів..." class="w-full border rounded-l-lg px-4 py-2 focus:outline-none">
                     <button type="submit" class="bg-gray-800 text-white px-4 py-2 rounded-r-lg hover:bg-blue-600">Шукати</button>
                 </form>
@@ -27,8 +27,6 @@
             <div class="bg-blur-lt rounded-lg p-4">
                 <h2 class="text-2xl font-semibold text-gray-800 mb-4">Популярні категорії</h2>
                 <div class="space-y-2">
-                    <a href="#" class="block bg-white shadow-sm rounded-lg p-4 text-gray-700 hover:bg-gray-100">Категорія 1</a>
-                    <a href="#" class="block bg-white shadow-sm rounded-lg p-4 text-gray-700 hover:bg-gray-100">Категорія 2</a>
                     @foreach ($categories as $category)
                         <a href="{{ route('categories.show', $category->id) }}" class="block bg-white shadow-sm rounded-lg p-4 text-gray-700 hover:bg-gray-100">
                             <h5>{{ $category->name }}</h5>

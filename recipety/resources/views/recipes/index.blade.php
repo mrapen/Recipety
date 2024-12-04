@@ -8,5 +8,6 @@
         @foreach($recipes as $recipe)
             <x-recipe-card :recipe="$recipe" />
         @endforeach
+        {{ $recipes->links() }}
     </section>
 @endsection

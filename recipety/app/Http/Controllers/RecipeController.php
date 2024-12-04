@@ -32,7 +32,7 @@ class RecipeController extends Controller
     public function index()
     {
         // Отримуємо рецепти з усіма пов’язаними даними
-        $recipes = Recipe::with(['category', 'ingredients']);
+        $recipes = Recipe::with(['category', 'ingredients'])->paginate(10);
 
         // Повертаємо вид зі рецептами
         return view('recipes.index', compact('recipes'));

@@ -8,7 +8,7 @@
 
     <!-- Зображення рецепта -->
     <div class="bg-white shadow-sm rounded-lg p-4 mb-4">
-        <img src="{{ $recipe->image }}" alt="{{ $recipe->title }}"class="shadow-sm rounded-lg p-4 mb-4">
+        <img src="{{ asset($recipe->image) }}" alt="{{ $recipe->title }}"class="shadow-sm rounded-lg p-4 mb-4 w-1/2">
     </div>
 
     <!-- Опис рецепта -->

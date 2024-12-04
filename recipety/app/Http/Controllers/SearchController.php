@@ -15,7 +15,7 @@ class SearchController extends Controller
      */
     public function index(Request $request)
     {
-        $query = $request->input('query');
+        $query = $request->input('search');
 
         $recipes = Recipe::query()
             ->where('title', 'LIKE', '%' . $query . '%')

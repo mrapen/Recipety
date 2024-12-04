@@ -5,7 +5,7 @@ use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SearchController;
 
-Route::get('/search', [SearchController::class, 'index'])->name('search');
+Route::get('/search', [SearchController::class, 'index'])->name('search.index');
 
 Route::get('/', [RecipeController::class, 'home'])->name('home');
 
