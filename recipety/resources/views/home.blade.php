@@ -29,7 +29,7 @@
                 <div class="space-y-2">
                     @foreach ($categories as $category)
                         <a href="{{ route('categories.show', $category->id) }}" class="block bg-white shadow-sm rounded-lg p-4 text-gray-700 hover:bg-gray-100">
-                            <h5>{{ $category->name }}</h5>
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-4">{{ $category->name }}</h3>
                             <span>Рецептів: {{ $category->recipes_count }}</span>
                         </a>
                     @endforeach
