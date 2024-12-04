@@ -21,7 +21,7 @@
         </div>
     </header>
 
-    <main class="bg-custom bg-blur-sm container mx-auto py-8 px-6">
+    <main class="container mx-auto py-8 px-6">
         @yield('content')
     </main>
 

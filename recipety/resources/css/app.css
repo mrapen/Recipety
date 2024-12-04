@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 @layer utilities {
-    .bg-custom {
-        background-image: url('/images/bg_01.svg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: repeat;
-    }
     .bg-blur-lt{
         backdrop-filter: blur(2px);
     }
