@@ -27,7 +27,7 @@
 
     <footer class="bg-gray-800 text-white py-4">
         <div class="container mx-auto text-center">
-            &copy; {{ date('Y') }} Recipety. Всі права захищено.
+            &copy; {{ date('Y') }} Recipety. Всі права захищено. Автор Малайдах Вадим Михайлович. Контакти: qwer.qwer1232016@gmail.com, +380962863086.
         </div>
     </footer>
 </body>
