@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(CategorySeeder::class); // Спочатку категорії
         $this->call(IngredientSeeder::class); // Потім інгредієнти
-        $this->call(RecipeSeeder::class); // Нарешті рецепти
+        $this->call(RecipeSeeder::class); // Далі рецепти
+        $this->call(RecipeIngredientSeeder::class); // Нарешті інгредієнти для рецептів
     }
 }
